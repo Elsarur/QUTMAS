@@ -4,7 +4,7 @@ interface IQuestion {
     title: String;
     type: "radio" | "checkbox" | "select" | "text",
     isMandatory: boolean,
-    questionnaireId: Schema.Types.ObjectId | string;
+    QuestionnaireId: Schema.Types.ObjectId | string;
 }
 const QuestionSchema = new Schema<IQuestion>({
     title:{
@@ -18,6 +18,11 @@ const QuestionSchema = new Schema<IQuestion>({
     },
     isMandatory:{
         type: Boolean,
+        required:true
+    },
+    QuestionnaireId: {
+        type: Schema.Types.ObjectId,
+        ref:"questionaires",
         required:true
     }
 })
